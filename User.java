@@ -106,7 +106,7 @@
          //// Replace the following statement with your code
         int count = 0;
         for (int i = 0; i < fCount; i++) {
-            for (int j = 0; j < other.getfCount(); j++) {
+            for (int j = 0; j < other.fCount; j++) {
                 if(follows[i].equals(other.follows[j])){
                     count++;
                 }
