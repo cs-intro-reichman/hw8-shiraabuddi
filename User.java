@@ -48,7 +48,7 @@
             return false;
         }
         for (int i = 0; i < fCount; i++) {
-            if (follows[i].equals(name.toLowerCase())){
+            if (follows[i].toLowerCase().equals(name.toLowerCase())){
                 return  true;
             }
         }
