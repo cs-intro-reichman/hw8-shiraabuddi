@@ -106,9 +106,14 @@
          //// Replace the following statement with your code
         int count = 0;
         for (int i = 0; i < fCount; i++) {
+            int countdup = 0;
             for (int j = 0; j < other.getfCount(); j++) {
                 if(follows[i].equals(other.getfFollows()[j])){
                     count++;
+                    countdup++;
+                }
+                if (countdup>1){
+                    count = count-countdup+1;
                 }
                 
             }
