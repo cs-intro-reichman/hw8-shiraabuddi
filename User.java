@@ -122,13 +122,13 @@
         //// Replace the following statement with your code
         int count = 0;
         for (int i = 0; i < fCount; i++) {
-            if(other.getName().toLowerCase().equals(follows[i].toLowerCase())){
+            if(other.getName().equals(follows[i])){
                 count++;
             }
         }
         if (count == 1){
             for (int i = 0; i < other.getfCount(); i++) {
-                if(other.getfFollows()[i].equals(this.name.toLowerCase())){
+                if(other.getfFollows()[i].equals(this.name)){
                     count++;
                 }
             }
