@@ -28,7 +28,7 @@
 
     /** Returns the name of this user. */
     public String getName() {
-        return name.toLowerCase();
+        return name;
     }
 
     /** Returns the follows array. */
@@ -66,12 +66,12 @@
         }
         else {
             for (int i = 0; i < fCount; i++) {
-                if (follows[i].toLowerCase().equals(name.toLowerCase())){
+                if (follows[i].toLowerCase().equals(name)){
                     return  false;
                 }
             }
         }
-        follows[fCount] += name;
+        follows[fCount] = name;
         fCount++;
         return true;
     }
@@ -83,19 +83,20 @@
             return false;
         }
         for (int i = 0; i < fCount; i++) {
-            if (follows[i].toLowerCase().equals(name.toLowerCase())){
-                if (i == fCount-1){
-                        follows[i]=null;
-                }
-                else{
+            if (follows[i].equals(name)){
+                    follows[i]=null;
                     for (int j = i; j < fCount; j++) {
+                        if (j<fCount-1){
                         follows[j]=follows[j+1];
+                        }
+                        else{
+                            follows[j]=null;
+                        }
                     }
                 }
                 fCount--;
                 return true;
             }
-        }
         return false;
     }
 
@@ -121,7 +122,7 @@
         //// Replace the following statement with your code
         int count = 0;
         for (int i = 0; i < fCount; i++) {
-            if(other.getName().equals(follows[i].toLowerCase())){
+            if(other.getName().toLowerCase().equals(follows[i].toLowerCase())){
                 count++;
             }
         }
