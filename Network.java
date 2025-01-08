@@ -70,7 +70,10 @@ public class Network {
         if (name1.equals(name2)){
             return false;
         }
-        return getUser(name1).addFollowee(name2);
+        if (getUser(name1).addFollowee(name2)){
+            return true;
+        }
+        return false;
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is

@@ -113,7 +113,7 @@
                 
             }
         }
-        return count;
+        return count/2;
     }
 
     /** Checks is this user is a friend of the other user.
