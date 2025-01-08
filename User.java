@@ -66,7 +66,7 @@
         }
         else {
             for (int i = 0; i < fCount; i++) {
-                if (follows[i].equals(name.toLowerCase())){
+                if (follows[i].toLowerCase().equals(name.toLowerCase())){
                     return  false;
                 }
             }
@@ -83,7 +83,7 @@
             return false;
         }
         for (int i = 0; i < fCount; i++) {
-            if (follows[i].equals(name.toLowerCase())){
+            if (follows[i].toLowerCase().equals(name.toLowerCase())){
                 if (i == fCount-1){
                         follows[i]=null;
                 }
@@ -106,7 +106,7 @@
         int count = 0;
         for (int i = 0; i < fCount; i++) {
             for (int j = 0; j < other.getfCount(); j++) {
-                if(follows[i].equals(other.getfFollows()[j].toLowerCase())){
+                if(follows[i].toLowerCase().equals(other.getfFollows()[j].toLowerCase())){
                     count++;
                 }
                 
