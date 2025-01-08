@@ -31,7 +31,7 @@ public class Network {
     public User getUser(String name) {
         //// Replace the following statement with your code
         for (int i = 0; i < userCount; i++) {
-            if(users[i].getName().toLowerCase().equals(name.toLowerCase())){
+            if(users[i].getName().equals(name)){
                 return users[i];
             }
         }
@@ -67,10 +67,10 @@ public class Network {
         if ((name1 == null) || (name2 == null) || ( getUser(name2)==null) || (getUser(name1)==null)){
             return false;
         }
-        if (name1.toLowerCase().equals(name2.toLowerCase())){
+        if (name1.equals(name2)){
             return false;
         }
-        return getUser(name1).addFollowee(name2.toLowerCase());
+        return getUser(name1).addFollowee(name2);
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
@@ -95,16 +95,18 @@ public class Network {
     /** Computes and returns the name of the most popular user in this network: 
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
-        String mostPopular = "";
+        String mostPopular = null;
         int maxfollow = 0;
         for (int i = 0; i < userCount; i++) {
             int count = 0;
             for (int j = 0; j < users[i].getfCount(); j++) {
-                if (users[j].follows(users[i].getName())){
-                    count++;
+                if(!users[j].getName().equals(users[i].getName())){
+                    if (users[j].follows(users[i].getName())){
+                        count++;
+                    }
                 }
             }
-            if (maxfollow<count){
+            if (maxfollow <= count){
                 mostPopular = users[i].getName();
                 maxfollow=count;
             }
